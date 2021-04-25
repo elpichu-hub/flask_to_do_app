@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Log In {% endblock %}
+
+
+
+
+
+{% block body %}
+
+
+
+<div class="col-10 mx-auto col-lg-3 login-container">
+    
+    <form class="p-5 border rounded-3 bg-light" action="/login" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+            <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"
+                required>
+            <label for="floatingInput">Password</label>
+        </div>
+
+
+        <button class="w-100 btn btn-lg btn-primary" id="submit" name="submit" type="submit">Log in</button>
+        <hr class="my-4">
+        <small class="text-muted">You are young and life is long and there is time to kill today.</small>
+    </form>
+    {% for field in form.errors %}
+    {% for error in form.errors[field] %}
+    <div class="alert alert-warning">
+        <strong>Error!</strong> {{error}}
+    </div>
+    {% endfor %}
+    {% endfor %}
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{category}}" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

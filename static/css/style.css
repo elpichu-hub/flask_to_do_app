@@ -1,0 +1,28 @@
+body {
+    background-color: rgb(235, 246, 247);
+    margin: 0;
+}
+
+.guide-margin {
+    margin-top: 130px !important;
+}
+
+
+
+.login-container {
+    margin-top: 130px;
+}
+
+.container-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color:  rgb(235, 246, 247);
+}
+
+
+
+
+
+
+

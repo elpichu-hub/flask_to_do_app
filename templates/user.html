@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %} {{user.username}} {% endblock %}
+
+
+{% block body %}
+
+
+
+
+<div class="col-10 mx-auto col-lg-3 login-container">
+
+
+
+
+
+    <form class="p-5 border rounded-3 bg-light" action="/{{ current_user.username }}" method="POST">
+
+        {% for field in form.errors %}
+        {% for error in form.errors[field] %}
+        <div class="alert alert-warning">
+            <strong>Error!</strong> {{error}}
+        </div>
+        {% endfor %}
+        {% endfor %}
+
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{category}}" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+
+
+        {{ form.hidden_tag() }}
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="date" name="date" placeholder="10/02/1999" required>
+            <label for="floatingInput">04/18/21-12:00 AM</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="task_description" name="task_description"
+                placeholder="Enter task" required>
+            <label for="floatingInput">Task</label>
+        </div>
+
+
+        <button class="w-100 btn btn-lg btn-primary" id="submit" name="submit" type="submit">Create Task</button>
+        <hr class="my-4">
+        <small class="text-muted">"I don't know, I was really drunk at the time!"</small>
+
+
+
+    </form>
+
+
+    {% for task in tasks %}
+
+    <li class="list-group-item"><a href="{{ url_for('delete', id=task.id) }}"> Remove</a> {{ task }}, {{
+        task.date|laz }} {{task.time}}
+    </li>
+    {% endfor %}
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
