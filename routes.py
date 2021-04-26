@@ -29,7 +29,7 @@ def printing():
     with app.app_context():
         tasks = Task.query.all()
         for task in tasks:
-            print(task.date.hour)
+            print(task.date())
            
 
 
