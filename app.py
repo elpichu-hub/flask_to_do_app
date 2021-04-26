@@ -14,8 +14,10 @@ url='postgresql://quwmbantdzhpao:877234c1f72fd64bc78717fbc0f1d833e5c1e2c7e98af61
 app = Flask(__name__)
 
 scheduler = BackgroundScheduler()
-scheduler.add_jobstore('sqlalchemy', url=url)
-
+if app.config['ENV'] == 'production':
+    scheduler.add_jobstore('sqlalchemy', url=url)
+else:
+    scheduler.add_jobstore('sqlalchemy', url='sqlite:///new.db')
 
 login_manager = LoginManager()
 login_manager.init_app(app)
