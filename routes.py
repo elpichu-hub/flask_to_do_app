@@ -33,10 +33,10 @@ def printing():
            
 
 
-
-check_hour_job = scheduler.add_job(task_date_check, 'interval', minutes=120, id='myjob', replace_existing=True)  
-scheduler.start()
-scheduler.print_jobs()
+if not app.debug or os.environ.get('WERKZEUG_RUN_MAIN') == 'true':
+    check_hour_job = scheduler.add_job(task_date_check, 'interval', minutes=120, id='myjob', replace_existing=True)  
+    scheduler.start()
+    scheduler.print_jobs()
 
 
 
