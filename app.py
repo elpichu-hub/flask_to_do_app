@@ -13,7 +13,7 @@ url='postgresql://quwmbantdzhpao:877234c1f72fd64bc78717fbc0f1d833e5c1e2c7e98af61
 
 app = Flask(__name__)
 
-scheduler = BackgroundScheduler()
+scheduler = BackgroundScheduler(daemon=True)
 if app.config['ENV'] == 'production':
     scheduler.add_jobstore('sqlalchemy', url=url)
 else:
