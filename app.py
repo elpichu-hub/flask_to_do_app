@@ -18,7 +18,7 @@ jobstores = {
     'sqlalchemy': SQLAlchemyJobStore(url=url)
 }
 
-scheduler = BackgroundScheduler(jobstores=jobstores, daemon=True)
+scheduler = BackgroundScheduler(jobstores=jobstores)
 
 
 
