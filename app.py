@@ -15,10 +15,10 @@ app = Flask(__name__)
 
 
 jobstores = {
-    'default': SQLAlchemyJobStore(url='mysql://localhost/lgmim')
+    'default': SQLAlchemyJobStore(url=url)
 }
 
-scheduler = BackgroundScheduler(jobstores=jobstores, daemon=True url=url)
+scheduler = BackgroundScheduler(jobstores=jobstores, daemon=True)
 
 
 
