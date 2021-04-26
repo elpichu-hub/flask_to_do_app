@@ -35,8 +35,7 @@ def printing():
 
 
 check_hour_job = scheduler.add_job(task_date_check, 'interval', seconds=50, id='myjob', replace_existing=True)  
-
-scheduler.remove_job('myjob')
+scheduler.start()
 
 
 
