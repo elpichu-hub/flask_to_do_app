@@ -20,7 +20,7 @@ def task_date_check():
             if task.date.date() == date.date():
                 user = User.query.get(task.user_id)
                 msg = Message(f"Hi, {user.username}. This is a reminder.", sender=app.config['MAIL_USERNAME'], recipients=[user.email])
-                msg.body = f"{user.username}, your task '{task.task_description}' is scheduled for today: {date.date()} at {task.date.time()}. Please remove task from app to stop receiving emails as reminder every hour."
+                msg.body = f"{user.username}, your task '{task.task_description}' is scheduled for today: {date.date()} at {task.date.time()}. Please remove task from app to stop receiving emails about this task."
                 mail_test.send(msg)
 
 
@@ -33,9 +33,9 @@ def printing():
            
 
 
-
-check_hour_job = scheduler.add_job(task_date_check, 'interval', seconds=50, id='myjob', replace_existing=True)  
-scheduler.start()
+if not app.debug or os.environ.get('WERKZEUG_RUN_MAIN') == 'true':
+   check_hour_job = scheduler.add_job(task_date_check, 'interval', minutes=1, id='myjob', replace_existing=True)  
+   scheduler.start()
 
 
 
