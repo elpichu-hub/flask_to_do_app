@@ -34,7 +34,7 @@ def printing():
 
 
 if not app.debug or os.environ.get('WERKZEUG_RUN_MAIN') == 'true':
-   check_hour_job = scheduler.add_job(printing, 'interval', seconds=10, id='myjob')  
+   check_hour_job = scheduler.add_job(task_date_check, 'interval', seconds=10, id='myjob')  
    scheduler.start()
 
 
