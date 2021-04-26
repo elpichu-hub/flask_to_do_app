@@ -17,7 +17,7 @@ def task_date_check():
     with app.app_context():
         tasks = Task.query.all()
         for task in tasks:
-            if task.date.date() == date.date():
+            if task.date.date() == date.date() and task.date.hour == date.hour + 2:
                 user = User.query.get(task.user_id)
                 msg = Message(f"Hi, {user.username}. This is a reminder.", sender=app.config['MAIL_USERNAME'], recipients=[user.email])
                 msg.body = f"{user.username}, your task '{task.task_description}' is scheduled for today: {date.date()} at {task.date.time()}. Please remove task from app to stop receiving emails about this task."
