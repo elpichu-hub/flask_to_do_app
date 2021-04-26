@@ -18,7 +18,7 @@ jobstores = {
     'default': SQLAlchemyJobStore(url='mysql://localhost/lgmim')
 }
 
-scheduler = BackgroundScheduler(jobstores=jobstores, daemon=True)
+scheduler = BackgroundScheduler(jobstores=jobstores, daemon=True url=url)
 
 
 
