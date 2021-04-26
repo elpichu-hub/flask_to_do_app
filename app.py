@@ -13,7 +13,13 @@ url='postgresql://quwmbantdzhpao:877234c1f72fd64bc78717fbc0f1d833e5c1e2c7e98af61
 
 app = Flask(__name__)
 
-scheduler = BackgroundScheduler(daemon=True)
+
+jobstores = {
+    'default': SQLAlchemyJobStore(url='mysql://localhost/lgmim')
+}
+
+scheduler = BackgroundScheduler(jobstores=jobstores, daemon=True)
+
 
 
 login_manager = LoginManager()
