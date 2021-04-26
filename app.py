@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 
 jobstores = {
-    'default': SQLAlchemyJobStore(url=url)
+    'sqlalchemy': SQLAlchemyJobStore(url=url)
 }
 
 scheduler = BackgroundScheduler(jobstores=jobstores, daemon=True)
