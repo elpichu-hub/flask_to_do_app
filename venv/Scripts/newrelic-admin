@@ -1,5 +1,0 @@
-#!c:\users\lazle\onedrive\escritorio\flask_app\venv\scripts\python.exe
-
-import newrelic.admin
-
-newrelic.admin.main()

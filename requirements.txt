@@ -16,7 +16,6 @@ itsdangerous==1.1.0
 Jinja2==2.11.3
 lockfile==0.12.2
 MarkupSafe==1.1.1
-newrelic==6.2.0.156
 numpy==1.20.2
 psycopg2==2.8.6
 python-daemon==2.1.2
