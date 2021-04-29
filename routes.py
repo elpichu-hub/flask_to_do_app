@@ -1,5 +1,5 @@
-from myfilters import laz
-from app import app, db, login_manager, mail, mail_test, scheduler
+
+from app import app, db, login_manager, mail
 from flask import Flask, render_template, redirect, url_for, request, flash
 from forms import SignUp, LogIn, TaskForm
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
@@ -7,33 +7,7 @@ from models import User, Task
 from flask_mail import Mail, Message
 from datetime import datetime, date
 import os
-
-
-
-
-date = datetime.now()
-
-def task_date_check():
-    with app.app_context():
-        tasks = Task.query.all()
-        for task in tasks:
-            if task.date.date() == date.date():
-                user = User.query.get(task.user_id)
-                msg = Message(f"Hi, {user.username}. This is a reminder.", sender=app.config['MAIL_USERNAME'], recipients=[user.email])
-                msg.body = f"{user.username}, your task '{task.task_description}' is scheduled for today: {date.date()} at {task.date.time()}. Please remove task from app to stop receiving emails about this task."
-                mail_test.send(msg)
-
-
-
-
-
-
-if not app.debug or os.environ.get('WERKZEUG_RUN_MAIN') == 'true':
-    check_hour_job = scheduler.add_job(task_date_check, 'interval', minutes=60, id='myjob', replace_existing=True)  
-    scheduler.start()
-    scheduler.print_jobs()
-
-
+from myfilters import laz
 
 
 

@@ -1,20 +1,5 @@
-
-from app import db
-from models import User, Task
-from datetime import datetime, date, time
+from datetime import datetime
 
 
-date = datetime.now()
-print(date.time())
-
-
-
-
-
-
-
-
-
-    
-
-
+date = datetime.utcnow().hour
+print(date)

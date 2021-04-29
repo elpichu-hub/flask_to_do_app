@@ -2,24 +2,14 @@ from flask import Flask, current_app, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_mail import Mail, Message
-from apscheduler.schedulers.background import BackgroundScheduler
-from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 
 
 
-####these are the two databases url is for production url1 is for developemnt fix this shit soon##3
-url='postgresql://quwmbantdzhpao:877234c1f72fd64bc78717fbc0f1d833e5c1e2c7e98af612e67badef983ad03a@ec2-34-225-167-77.compute-1.amazonaws.com:5432/d4mlir0vcgc3ho'
-url1 = 'sqlite:///new.db'
 
 app = Flask(__name__)
 
 
-####here all you have to do is change the url=url depending on the enviroment####
-jobstores = {
-    'sqlalchemy': SQLAlchemyJobStore(url=url1)
-}
 
-scheduler = BackgroundScheduler()
 
 
 login_manager = LoginManager()
@@ -37,7 +27,8 @@ else:
 
 
 mail = Mail(app)
-mail_test = Mail(app)
+mail2 = Mail(app)
+
 
 
 
