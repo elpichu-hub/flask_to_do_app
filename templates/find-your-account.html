@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Find Account {% endblock %}
+
+
+
+
+
+
+
+{% block body %}
+
+
+<div class="col-10 mx-auto col-lg-3 login-container">
+
+    <form class="p-5 border rounded-3 bg-light" action="/find-your-account" method="POST">
+        {{ form.hidden_tag() }}
+        <h3>Find Your Account</h3>
+        <hr class="my-4">
+        <p class="fs-5">Please enter your email to search for your account.</p>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+        </div>
+        <hr class="my-4">
+        <div class="d-flex justify-content-end">
+            <a href="{{ url_for('login') }}"><button type="button" class="btn btn-secondary me-2">Cancel</button></a>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    
+    </form>
+    {% for field in form.errors %}
+    {% for error in form.errors[field] %}
+    <div class="alert alert-warning">
+        <strong>Error!</strong> {{error}}
+    </div>
+    {% endfor %}
+    {% endfor %}
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{category}}" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+</div>
+
+
+{% endblock %}

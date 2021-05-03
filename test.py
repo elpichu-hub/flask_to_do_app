@@ -1,5 +1,5 @@
 from datetime import datetime
 
 
-date = datetime.utcnow().hour
+date = datetime.utcnow()
 print(date)

@@ -12,7 +12,7 @@
 
 
 <div class="col-10 mx-auto col-lg-3 login-container">
-    
+
     <form class="p-5 border rounded-3 bg-light" action="/login" method="POST">
         {{ form.hidden_tag() }}
         <div class="form-floating mb-3">
@@ -25,10 +25,13 @@
             <label for="floatingInput">Password</label>
         </div>
 
-
         <button class="w-100 btn btn-lg btn-primary" id="submit" name="submit" type="submit">Log in</button>
+        <div class="text-center mt-3">
+            <span class="text-center"><a href="{{ url_for('find_your_account') }}">Forgot Password?</a></span>
+        </div>
         <hr class="my-4">
         <small class="text-muted">You are young and life is long and there is time to kill today.</small>
+
     </form>
     {% for field in form.errors %}
     {% for error in form.errors[field] %}
@@ -50,7 +53,7 @@
     {% endwith %}
 
 
-    
+
 </div>
 
 

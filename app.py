@@ -6,6 +6,7 @@ from flask_mail import Mail, Message
 
 
 
+
 app = Flask(__name__)
 
 
@@ -34,6 +35,7 @@ mail2 = Mail(app)
 
 
 db = SQLAlchemy(app)
+
 
 
 

@@ -1,3 +1,4 @@
+from flask import Flask, url_for
 import os
 from os import environ
 
@@ -17,6 +18,7 @@ class DevelopmentConfig(Config):
     MAIL_PASSWORD = 'compay2nd'
     MAIL_USE_TLS = False
     MAIL_USE_SSL = True
+    
 
 class ProductionConfig(Config):
     SECRET_KEY = 'Bj97zUiLgVPDR07RMXYP'

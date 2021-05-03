@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Password Reset {% endblock %}
+
+
+
+
+
+
+{% block body %}
+
+
+<div class="col-10 mx-auto col-lg-3 login-container">
+    <form class="p-5 border rounded-3 bg-light" action="/reset_code/{{ user.username }}" method="POST">
+        {{ form.hidden_tag() }}
+        <h3>Enter reset code...</h3>
+        <hr class="my-4">
+        <p class="fs-5">Please check your email for a message with your code.</p>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="reset_code" name="reset_code"
+                placeholder="Enter your reset code">
+            <label for="floatingInput">Reset Code</label>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    {% for field in form.errors %}
+    {% for error in form.errors[field] %}
+    <div class="alert alert-warning">
+        <strong>Error!</strong> {{error}}
+    </div>
+    {% endfor %}
+    {% endfor %}
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{category}}" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
+
+{% endblock %}
