@@ -2,6 +2,7 @@
 from app import app, db, login_manager, mail
 from flask import Flask, render_template, redirect, url_for, request, flash
 from forms import SignUp, LogIn, TaskForm, FindYourAccount, ResetCode, ResetPassword
+
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 from models import User, Task
 from flask_mail import Mail, Message
