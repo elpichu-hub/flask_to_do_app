@@ -1,5 +1,4 @@
 from flask import Flask, url_for
-import os
 from os import environ
 
 
