@@ -8,7 +8,7 @@ class Config(object):
 
 
 class DevelopmentConfig(Config):
-    SECRET_KEY = 'Bj97zUiLgVPDR07RMXYP'
+    SECRET_KEY = 'secret key'
     ENV = 'development'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///new.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
