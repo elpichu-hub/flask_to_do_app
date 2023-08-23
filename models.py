@@ -5,8 +5,6 @@ from werkzeug.security import check_password_hash, generate_password_hash
 import secrets
 
 
-
-
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=False, index=True)
@@ -30,15 +28,11 @@ class User(UserMixin, db.Model):
         
 
     
-
-    
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime())
     task_description = db.Column(db.String(50), unique=False, index=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-
 
     def __repr__(self):
         return f'{self.task_description}'

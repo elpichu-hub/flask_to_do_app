@@ -1,28 +1,25 @@
-from flask import Flask, url_for
-from os import environ
-
 
 class Config(object):
     pass
 
-
 class DevelopmentConfig(Config):
-    SECRET_KEY = 'secret key'
+    SECRET_KEY = 'dev'
     ENV = 'development'
-    SQLALCHEMY_DATABASE_URI = 'data base url'
+    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///new.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER ='smtp.gmail.com'
     MAIL_PORT = 465
-    MAIL_USERNAME = 'email'
-    MAIL_PASSWORD = 'password'
+    MAIL_USERNAME = 'etubrute56@gmail.com'
+    MAIL_PASSWORD = 'prsxyqoxhlodlpis'
     MAIL_USE_TLS = False
     MAIL_USE_SSL = True
     
 
 class ProductionConfig(Config):
-    SECRET_KEY = 'secret key'
+    SECRET_KEY = 'prod'
     ENV = 'production'
-    SQLALCHEMY_DATABASE_URI = 'data base url'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///new.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER ='smtp.gmail.com'
     MAIL_PORT = 465

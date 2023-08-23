@@ -1,22 +1,17 @@
 
 from app import app, db, login_manager, mail
-from flask import Flask, render_template, redirect, url_for, request, flash
+from flask import render_template, redirect, url_for, flash
 from forms import SignUp, LogIn, TaskForm, FindYourAccount, ResetCode, ResetPassword
 
-from flask_login import LoginManager, login_required, login_user, logout_user, current_user
+from flask_login import login_required, login_user, logout_user, current_user
 from models import User, Task
-from flask_mail import Mail, Message
-from datetime import datetime, date
-import os
-from myfilters import laz
-import secrets
-
-
+from flask_mail import Message
 
 
 @app.route('/', methods=['POST', 'GET'])
 @app.route('/home', methods=['POST', 'GET'])
 def home():
+    
     form = SignUp()
     if current_user.is_authenticated:
         return redirect(url_for('user', username=current_user.username))
@@ -37,7 +32,6 @@ def home():
         else:
             flash('Email is already in use!', 'warning')
     return render_template('home.html', form=form)
-
 
 
 
@@ -157,13 +151,6 @@ def logout():
     logout_user()
     print('user logged out')
     return redirect('home')
-
-
-
-@app.route('/school')
-def school():
-    return render_template('school.html')
-
 
 
 @login_manager.unauthorized_handler

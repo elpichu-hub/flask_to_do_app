@@ -52,7 +52,7 @@
 
         <button class="w-100 btn btn-lg btn-primary" id="submit" name="submit" type="submit">Create Task</button>
         <hr class="my-4">
-        <small class="text-muted">"I don't know, I was really drunk at the time!"</small>
+        <small class="text-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem itaque blanditiis ipsam voluptates quibusdam! Quos!</small>
 
 
 
@@ -62,7 +62,7 @@
     {% for task in tasks %}
 
     <li class="list-group-item"><a href="{{ url_for('delete', id=task.id) }}"> Remove</a> {{ task }}, {{
-        task.date|laz }} {{task.time}}
+        task.date|laz}} {{task.time}}
     </li>
     {% endfor %}
 

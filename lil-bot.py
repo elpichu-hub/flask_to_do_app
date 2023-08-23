@@ -3,10 +3,7 @@ from models import User, Task
 from flask_mail import Message, Mail
 from datetime import datetime
 
-
-
 date = datetime.now()
-
 
 with app.app_context():
     tasks = Task.query.all()
