@@ -10,8 +10,8 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER ='smtp.gmail.com'
     MAIL_PORT = 465
-    MAIL_USERNAME = 'etubrute56@gmail.com'
-    MAIL_PASSWORD = 'prsxyqoxhlodlpis'
+    MAIL_USERNAME = EMAIL
+    MAIL_PASSWORD = PASSWORD
     MAIL_USE_TLS = False
     MAIL_USE_SSL = True
     
